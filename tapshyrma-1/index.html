@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    
+<div class="box-container">
+
+    <div class="box" data-name="p-1">
+        <img src="https://avatars.mds.yandex.net/get-entity_search/935097/993443443/S600xU_2x">
+        <div class="overlay">
+            <div class="info">
+                <h3 class="product-name">Apple Watch</h3>
+                <div class="price">250$</div>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, quae.</p>
+            <div class="button">
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="box" data-name="p-2">
+        <img src="https://avatars.mds.yandex.net/i?id=7e2b9f554436117f9a37b3f89abe5c12202154d4-5233285-images-thumbs&n=13">
+        <div class="overlay">
+            <div class="info">
+                <h3 class="product-name">Music speaker</h3>
+                <div class="price">100$</div>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, quae.</p>
+            <div class="button">
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="box" data-name="p-3">
+        <img src="https://asiastore.kg/image/cache/catalog/airpods/airpodsmax/81jqupkivrl._ac_sl1500_-1200x1200.jpg">
+        <div class="overlay">
+            <div class="info">
+                <h3 class="product-name">Headphone</h3>
+                <div class="price">80$</div>
+            </div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, quae.</p>
+            <div class="button">
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="popup-container">
+
+<div class="preview active" data-target="p-1">
+    <i class="fas fa-times"></i>
+    <h3>Apple Wathc</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus reprehenderit eos enim, minus adipisci. Soluta reiciendis molestias facere odit dicta exercitationem eligendi, mollitia dignissimos?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo fugit aliquid cumque, accusantium laboriosam quam praesentium repellat beatae reiciendis, at doloribus. Animi voluptas consequatur culpa adipisci sunt. Sed provident distinctio consequuntur, a facilis nam vitae voluptates eius nesciunt nobis! Corporis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia eaque ipsam voluptatum, aliquam sunt accusamus doloribus ullam id quas aspernatur quis quam aperiam, praesentium impedit omnis ratione illum optio voluptates fugit repudiandae ipsum temporibus repellat? Nihil vitae quasi, adipisci quibusdam accusantium distinctio veritatis consequuntur quos delectus atque laboriosam voluptate placeat praesentium sit explicabo alias blanditiis quam saepe molestiae pariatur recusandae minus dolor. Unde nihil aperiam inventore sed magnam provident quas, illo illum rerum perspiciatis aut veniam ex iure numquam tempore?</p>
+    <button class="buy-btn">BUY NOW</button>
+</div>
+
+<div class="preview" data-target="p-2">
+    <i class="fas fa-times"></i>
+    <h3>Music speaker</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus reprehenderit eos enim, minus adipisci. Soluta reiciendis molestias facere odit dicta exercitationem eligendi, mollitia dignissimos?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo fugit aliquid cumque, accusantium laboriosam quam praesentium repellat beatae reiciendis, at doloribus. Animi voluptas consequatur culpa adipisci sunt. Sed provident distinctio consequuntur, a facilis nam vitae voluptates eius nesciunt nobis! Corporis.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia eaque ipsam voluptatum, aliquam sunt accusamus doloribus ullam id quas aspernatur quis quam aperiam, praesentium impedit omnis ratione illum optio voluptates fugit repudiandae ipsum temporibus repellat? Nihil vitae quasi, adipisci quibusdam accusantium distinctio veritatis consequuntur quos delectus atque laboriosam voluptate placeat praesentium sit explicabo alias blanditiis quam saepe molestiae pariatur recusandae minus dolor. Unde nihil aperiam inventore sed magnam provident quas, illo illum rerum perspiciatis aut veniam ex iure numquam tempore?</p>
+    <button class="buy-btn">BUY NOW</button>
+</div>
+
+<div class="preview" data-target="p-3">
+    <i class="fas fa-times"></i>
+    <h3>Headphone</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum temporibus reprehenderit eos enim, minus adipisci. Soluta reiciendis molestias facere odit dicta exercitationem eligendi, mollitia dignissimos?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo fugit aliquid cumque, accusantium laboriosam quam praesentium repellat beatae reiciendis, at doloribus. Animi voluptas consequatur culpa adipisci sunt. Sed provident distinctio consequuntur, a facilis nam vitae voluptates eius nesciunt nobis! Corporis.</p>
+    <button class="buy-btn">BUY NOW</button>
+</div>
+
+</div>
+
+
+<script>
+
+let popupContainer = document.querySelector('.popup-container');
+let previewBox = popupContainer.querySelectorAll('.preview');
+
+document.querySelectorAll(".box-container .box").forEach(product => {
+    product.onclick = () => {
+        popupContainer.style.display = 'flex';
+        let name = product.getAttribute(data-name);
+        previewBox.forEach(preview => {
+        let target = preview.getAttribute('data-target');
+        if (name == target){
+            preview.classList.add ('active');
+        };
+        });
+    };
+});
+
+previewBox.forEach(close => {
+close.querySelector('.fa-times').onclick = () => {
+    close.classList.remove("active");
+    popupContainer.style.display = 'none';
+};
+});
+
+</script>
+
+</body>
+</html>
